@@ -1,0 +1,9 @@
+module.exports={
+    Usercontrollers:require("./UserController"),
+    LoginController:require("./LoginController"),
+    adminController:require("./adminController"),
+    authadmincontroller:require("./AuthadminLoginController"),
+    uploadBannerToS3:require("./uploadBannerS3"),
+    bannerController:require("./BannerController"),
+    awsS3VideoUploadController:require("./VideoS3Controller")
+}
