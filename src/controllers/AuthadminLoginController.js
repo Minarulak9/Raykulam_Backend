@@ -33,7 +33,7 @@ try {
         httpOnly:true,
           secure: true,
          sameSite: "none",
-        domain: ".raykulam.com",
+        domain: "shaligramhealing.space",
         maxAge: 15 * 60 * 1000,
     })
 
@@ -41,7 +41,7 @@ try {
         httpOnly:true,
          secure: true,
   sameSite: "none",
-  domain: ".raykulam.com",
+  domain: "shaligramhealing.space",
         maxAge: 7 * 24 * 60 * 60 * 1000
     })
 
@@ -78,7 +78,7 @@ const generateNewAccessToken=async(req,res)=>{
       httpOnly: true,
       secure: true,
   sameSite: "none",
-  domain: ".raykulam.com",
+  domain: "shaligramhealing.space",
       maxAge: 15 * 60 * 1000,
     });
 
@@ -104,14 +104,14 @@ const adminLogout=async(req,res)=>{
             httpOnly:true,
               secure: true,
   sameSite: "none",
-  domain: ".raykulam.com",
+  domain: "shaligramhealing.space",
         })
 
         res.clearCookie("refresh_token",{
             httpOnly:true,
             secure: true,
   sameSite: "none",
-  domain: ".raykulam.com",
+  domain: "shaligramhealing.space",
         })
 
         return res.status(200).json({

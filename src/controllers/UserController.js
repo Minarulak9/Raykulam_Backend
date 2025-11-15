@@ -36,14 +36,14 @@ const UserCreateData=async(req,res)=>{
             httpOnly:true,
               secure: true,
   sameSite: "none",
-  domain: ".raykulam.com",
+  domain: "shaligramhealing.space",
             maxAge:2*24*60*60*1000
         })
         res.cookie("userRefresh_Token",refreshToken,{
             httpOnly:true,
               secure: true,
   sameSite: "none",
-  domain: ".raykulam.com",
+  domain: "shaligramhealing.space",
             maxAge:7*24*60*60*1000
         })
         return res.status(200).json({
