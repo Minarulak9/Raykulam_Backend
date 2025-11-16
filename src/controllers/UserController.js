@@ -34,16 +34,16 @@ const UserCreateData=async(req,res)=>{
         const refreshToken= jwt.sign({id:responce._id},process.env.JWTSECRET_REFRESH,{expiresIn:"7d"});
         res.cookie("userAccess_Token",accessToken,{
             httpOnly:true,
-              secure: true,
+             secure: process.env.NODE_ENV === "production",
   sameSite: "none",
-  domain: "shaligramhealing.space",
+    domain: process.env.NODE_ENV === "production" ? "shaligramhealing.space" : undefined,
             maxAge:2*24*60*60*1000
         })
         res.cookie("userRefresh_Token",refreshToken,{
             httpOnly:true,
-              secure: true,
+             secure: process.env.NODE_ENV === "production",
   sameSite: "none",
-  domain: "shaligramhealing.space",
+    domain: process.env.NODE_ENV === "production" ? "shaligramhealing.space" : undefined,
             maxAge:7*24*60*60*1000
         })
         return res.status(200).json({

@@ -3,7 +3,8 @@ const generatePresignedUrl = require("../utils/generateS3url");
 const uploadBanner=async(req,res)=>{
     try {
         const {folder,filename,filetype}=req.body;
-        
+        console.log(req.body);
+
            if (!folder || !filename || !filetype) {
       return res.status(400).json({ error: "folder,filename,filetype  required" });
            }
