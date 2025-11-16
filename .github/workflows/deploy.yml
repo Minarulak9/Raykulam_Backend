@@ -1,0 +1,29 @@
+name: Deploy Backend to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+
+      - name: Pull latest code on EC2
+        run: |
+          cd /home/ubuntu/programming/Raykulam_Backend/
+          git pull origin master
+
+      - name: Install dependencies
+        run: |
+          cd /home/ubuntu/programming/Raykulam_Backend/
+          npm install --production
+
+      - name: Restart PM2
+        run: |
+          pm2 restart backend
+          pm2 save
