@@ -4,6 +4,7 @@ const {bannerController}=require("../../controllers")
 const {verifyToken}=require("../../middlewares/authverifyadminCookies")
 
 
-router.post("/createbanner",verifyToken,bannerController.createBanner);
+router.get("/",bannerController.getAllBanner);
+router.post("/createbanner",bannerController.createBanner);
 
 module.exports=router;

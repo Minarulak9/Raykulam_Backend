@@ -40,7 +40,7 @@ router.use("/uploadbanner",uploadBannerToAwsS3);
 
 
 //banner(CRUD)
-router.use("/auth/banner",bannerRouter);
+router.use("/banner",bannerRouter);
 
 
 //upload video to s3

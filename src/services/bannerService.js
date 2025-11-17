@@ -12,9 +12,9 @@ async function createBannerService(data) {
     }
 }
 
-async function findAllBannerdata(data) {
+async function findAllBannerdata() {
     try {
-        const responce= await bannerService.FindDataMany(data);
+        const responce= await bannerService.findBannerAllData();
         return responce;
     } catch (error) {
         console.error("Error to find all banner data",error);

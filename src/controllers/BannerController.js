@@ -18,6 +18,24 @@ try {
 }
 }
 
+const getAllBanner=async(req,res)=>{
+    try {
+        const responce = await bannerService.findAllBannerdata();
+        return res.status(200).json({
+            success:true,
+            message:"successfully get data",
+            responce
+        })
+    } catch (error) {
+        console.error("error to get banner data in controller")
+        return res.status(500).json({
+            success:false,
+            message:"Error to get banner data",
+            error
+        })
+    }
+}
 module.exports={
-    createBanner
+    createBanner,
+    getAllBanner
 }
