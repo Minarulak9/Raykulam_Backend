@@ -86,26 +86,26 @@ const UserFindOnedata=async(req,res)=>{
 }
 
 
-// const UserFindManydata=async(req,res)=>{
-//     try {
-//         const query= req.params.lastname;
-//         const  responce= await UserServices.FindManyUserService({lastname:query});
-//         console.log(query);
+const UserFindManydata=async(req,res)=>{
+    try {
+      
+        const  responce= await UserServices.FindManyUserService();
+      
         
-//         return res.status(201).json({
-//             success:true,
-//             message:"Successfully find Data",
-//             responce:responce
-//         })
-//     } catch (error) {
-//              console.error("unable to find data",error)
-//         return res.status(400).json({
-//             success:false,
-//             message:"No data found",
-//             error:error
-//         })
-//     }
-// }
+        return res.status(201).json({
+            success:true,
+            message:"Successfully find all  Data",
+            responce:responce
+        })
+    } catch (error) {
+             console.error("unable to find data",error)
+        return res.status(400).json({
+            success:false,
+            message:"No data found",
+            error:error
+        })
+    }
+}
 
 const UserUpdateData=async(req,res)=>{
     try {
@@ -153,7 +153,7 @@ const UserDeleteData=async(req,res)=>{
 module.exports={
     UserCreateData,
     UserFindOnedata,
-    // UserFindManydata,
+    UserFindManydata,
     UserUpdateData,
     UserDeleteData
 }

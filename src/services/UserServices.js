@@ -20,9 +20,9 @@ async function FindOneUserService(filter) {
         throw error;
     }
 }
-async function FindManyUserService(filter) {
+async function FindManyUserService() {
     try {
-        const responce= await userService.FindDataMany(filter);
+        const responce= await userService.FindAllData();
         return responce;
     } catch (error) {
         console.log("Error to get data",error);

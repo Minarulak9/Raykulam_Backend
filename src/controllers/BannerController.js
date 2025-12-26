@@ -35,7 +35,34 @@ const getAllBanner=async(req,res)=>{
         })
     }
 }
+// const UpdateBanner=async(req,res)=>{
+//     try {
+//         const data= await req.body;
+//     } catch (error) {
+        
+//     }
+// }
+const getBanner=async(req,res)=>{
+    try {
+        console.log("banner id ",req.params);
+        const {id}= req.params;
+        const responce =await bannerService.findOneBanner(id);
+        return res.status(200).json({
+            success:true,
+            message:"successfully get banner data",
+            responce
+        })
+    } catch (error) {
+        console.log("error to get banner data");
+        return res.status(404).json({
+            success:false,
+            message:"error to get banner data",
+            error
+        })
+    }
+}
 module.exports={
     createBanner,
-    getAllBanner
+    getAllBanner,
+    getBanner
 }

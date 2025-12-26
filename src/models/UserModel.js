@@ -23,6 +23,11 @@ const UserModel = new mongoose.Schema(
         select:false,
         required:true
     },
+    status:{
+      type:String,
+      enum:["Active","Restricted"],
+      default:"Active"
+    },
     emailVerified: {
       type: Boolean,
       default:false

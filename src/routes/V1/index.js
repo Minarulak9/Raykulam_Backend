@@ -14,7 +14,7 @@ const awsS3uploadvideoRouter=require("./awsvideoS3.router")
 
 router.use("/createuser",userRouter);
 router.use("/auth/finduser",userRouter);
-// router.use("/findmanyuser",userRouter);
+router.use("/finduser",userRouter);
 router.use("/auth/updateuser",userRouter);
 router.use("/auth/deleteuser",userRouter);
 

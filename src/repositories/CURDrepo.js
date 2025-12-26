@@ -30,6 +30,15 @@ class curdrepositories{
             throw error;
         }
     }
+    async FindAllData(){
+        try {
+            const responce=await this.model.find({});
+            return responce;
+        } catch (error) {
+            console.log("Error to find data",error);
+            throw error;
+        }
+    }
 
     async updateData(filterId,updateData){
         try {

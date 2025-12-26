@@ -14,8 +14,7 @@ app.use(
       "http://localhost:5173",
       "http://localhost:3000",
       "https://secure-admin.raykulam.com",
-      "https://www.raykulam.com",
-      "https://api.raykulam.com"
+      "https://www.raykulam.com"
     ],
     credentials: true,
   })

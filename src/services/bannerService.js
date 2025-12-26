@@ -22,6 +22,16 @@ async function findAllBannerdata() {
     }
 }
 
+async function findOneBanner(filter) {
+    try {
+        const responce =await bannerService.FindDataOne(filter);
+        return responce;
+    } catch (error) {
+        console.error("Error to find banner data");
+        throw error;
+    }
+    
+}
 async function updateBannerdata(data) {
     try {
         const responce= await bannerService.updateData(data);
@@ -46,5 +56,6 @@ module.exports={
     createBannerService,
     updateBannerdata,
     findAllBannerdata,
+    findOneBanner,
     deleteBannerdata
 }
