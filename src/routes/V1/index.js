@@ -2,8 +2,6 @@ const express= require("express")
 const app = express();
 const router = express.Router();
 
-
-
 const userRouter=require("./user.router")
 const loginRouter=require("./Login.router")
 const adminRouter=require("./adminrouter");

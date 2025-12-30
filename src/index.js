@@ -3,6 +3,8 @@ const app = express();
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
 
+const prisma = require("./config/prisma");
+
 const Apirouter = require("./routes");
 const connectDB = require("./utils/db");
 const dotenv = require("dotenv");
@@ -12,6 +14,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
+      "http://localhost:3100",
       "http://localhost:3000",
       "https://secure-admin.raykulam.com",
       "https://www.raykulam.com",
@@ -26,6 +29,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api", Apirouter);
+
 
 // ---------- START SERVER ----------
 connectDB(process.env.MONGODB_URI).then(() => {
