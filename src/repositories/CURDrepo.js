@@ -1,9 +1,9 @@
-class curdrepositories{
-    constructor(model){
-        this.model=model;
+class curdrepositories {
+    constructor(model) {
+        this.model = model;
     }
 
-    async createData(data){
+    async createData(data) {
         try {
             const responce = await this.model.create(data);
             return responce;
@@ -12,38 +12,38 @@ class curdrepositories{
             throw error;
         }
     }
-    async FindDataOne(filter){
+    async FindDataOne(filter) {
         try {
-            const responce=await this.model.findById(filter);
+            const responce = await this.model.findById(filter);
             return responce;
         } catch (error) {
-            console.log("Error to find data",error);
+            console.log("Error to find data", error);
             throw error;
         }
     }
-       async FindDataMany(filter){
+    async FindDataMany(filter) {
         try {
-            const responce=await this.model.find(filter,{_id:0,firstname:1,lastname:1,email:1,});
+            const responce = await this.model.find(filter, { _id: 0, firstname: 1, lastname: 1, email: 1, });
             return responce;
         } catch (error) {
-            console.log("Error to find data",error);
+            console.log("Error to find data", error);
             throw error;
         }
     }
 
-    async updateData(filterId,updateData){
+    async updateData(filterId, updateData) {
         try {
-            const responce= await this.model.findByIdAndUpdate(filterId,updateData, { new: true, runValidators: true });
-            return responce;
+            const response = await this.model.findByIdAndUpdate(filterId, updateData, { new: true, runValidators: true });
+            return response;
         } catch (error) {
             console.error("User not found / Error to update data");
             throw error;
         }
     }
 
-    async deleteData(filter){
+    async deleteData(filter) {
         try {
-            const responce= await this.model.deleteOne(filter)
+            const responce = await this.model.deleteOne(filter)
             return responce;
         } catch (error) {
             console.error("Error to delete data");
@@ -52,4 +52,4 @@ class curdrepositories{
     }
 }
 
-module.exports=curdrepositories;
+module.exports = curdrepositories;
