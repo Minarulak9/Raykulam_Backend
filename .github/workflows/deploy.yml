@@ -10,20 +10,15 @@ jobs:
     runs-on: self-hosted
 
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
-
-      - name: Pull latest code on EC2
+      - name: Deploy backend
         run: |
-          cd /home/ubuntu/programming/Raykulam_Backend/
-          git pull origin master
+          set -e
+          cd /home/ubuntu/programming/Raykulam_Backend
 
-      - name: Install dependencies
-        run: |
-          cd /home/ubuntu/programming/Raykulam_Backend/
+          git fetch origin
+          git reset --hard origin/master
+
           npm install --production
 
-      - name: Restart PM2
-        run: |
           pm2 restart backend
           pm2 save
