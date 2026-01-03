@@ -7,6 +7,8 @@ const Apirouter = require("./routes");
 const connectDB = require("./utils/db");
 const dotenv = require("dotenv");
 dotenv.config();
+const mysqlAdminAuth = require("./mysql_auth");
+
 
 app.use(
   cors({
@@ -23,6 +25,8 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+mysqlAdminAuth(app);   
 
 app.use("/api", Apirouter);
 
